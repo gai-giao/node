@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 头部 */
+        .navdiv{
+            width: 100%;
+            height: 50px;
+            background-color: #46473F;
+            margin: 0;
+        }
+        .navdiv>.col-xs-1{
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+        }
+        .navdiv>.col-xs-1:nth-child(1){
+            color: #92928E;
+            font-size: 16px;
+        }
+        .navdiv>.col-xs-1:nth-child(3),.navdiv>.col-xs-1:nth-child(4){
+            background-color: #080808;
+        }
+        /* 侧边 */
+        .cargodiv{
+            width: 100%;
+            margin-top: 30px;
+            box-sizing: border-box;
+            padding:0 50px;
+        }
+        .cargodiv .col-xs-2{
+            border-radius: 10px;
+            border: 1px solid #cccccc;
+            border-bottom: none;
+            padding: 0;
+            overflow: hidden;
+        }
+        .cargodiv .col-xs-2 p{
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #cccccc;
+            margin: 0;
+            text-indent: 2em;
+        }
+        .p-lb{
+            background-color: #428BCA;
+            color: white;
+        }
+        .cargodiv .col-xs-10 p:nth-child(1){
+            width: 100%;
+            background-color: #F5F5F5;
+            height: 40px;
+            line-height: 40px;
+            text-indent: 2em;
+        }
+        .cargodiv .col-xs-10 div:nth-child(2){
+            padding-bottom: 10px;
+        }
+        .col-xs-10-div{
+            border: 1px solid #cccccc;
+        }
+        .cargodiv .col-xs-10 div:nth-child(2) span{
+            /* text-indent: 2em; */
+            display: inline-block;
+        }
+        .cargodiv .col-xs-10 div:nth-child(2) input{
+            /* height: 36px; */
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #cccccc;
+        }
+        .cargodiv .col-xs-10 div:nth-child(2) input:nth-child(4){
+            width: 100px;
+        }
+        .table{
+            margin-top: 50px;
+        }
+        .form{
+            box-sizing: border-box;
+            padding: 0 80px;
+        }
+        .form div{
+            width: 100%;
+            display: flex;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row navdiv">
+        <div class="col-xs-1">LOGO</div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">商品管理</div>
+        <div class="col-xs-1">系统设置</div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">欢迎:<span>admin</span></div>
+        <div class="col-xs-1">安全退出</div>
+    </div>
+    <div class="row cargodiv">
+        <div class="col-xs-2">
+            <p class="p-lb">用户管理</p>
+            <a href="/admin/userlist"><p>用户列表</p></a>
+            <a href="/admin/adduser"><p>增加用户</p></a>
+            <p class="p-lb">商品管理</p>
+            <a href="/admin/goodlist"><p>商品列表</p></a>
+            <a href="/admin/goodadd"><p>增加商品</p></a>
+            <p class="p-lb">分类管理</p>
+            <a href="/admin/goodclass"><p>商品分类列表</p></a>
+            <p>增加商品分类</p>
+        </div>
+        <div class="col-xs-10">
+            <p>用户管理/修改用户</p>
+            <div class="col-xs-10-div">
+                <p>修改用户</p>
+                <form action="/admin/upuser" method="POST" class="form">
+                    <input type="hidden" name="_id" value="<%= lists.id%>">
+                    <div>
+                        <span>用户名：</span><input type="text" name="username" value="<%= lists.username%>">
+                    </div>
+                    <div>
+                        <span>年 &nbsp;&nbsp; 龄：</span><input type="text" name="age" value="<%= lists.age%>">
+                    </div>
+                    <div>    
+                        <span>性 &nbsp;&nbsp; 别：</span><input type="text" name="sex" value="<%= lists.sex%>">
+                    </div>
+                    <div>    
+                        <span>住 &nbsp;&nbsp; 址：</span><input type="text" name="address" value="<%= lists.address%>">
+                    </div>
+                    <button class="btn btn-default">确定修改</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
